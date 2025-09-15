@@ -26,7 +26,7 @@ namespace GabeRyan_Conditionals
         static int playerHealth = 100;
         static WeaponType weapon = WeaponType.pistol;
         static string characterName = "Guy2";
-
+        
         static void ChangeWeapon(WeaponType NewWeapon)
         {
             weapon = NewWeapon;
@@ -40,6 +40,11 @@ namespace GabeRyan_Conditionals
         static void Heal(int hp)
         {
             playerHealth += hp;
+
+            if (playerHealth > 100)
+            {
+                playerHealth = 100;
+            }
         }
 
    
@@ -78,7 +83,7 @@ namespace GabeRyan_Conditionals
             {
                 Console.Write("{0,50}", HealthText + " Imminent Death...");
             }
-
+            
 
 
         }
@@ -141,10 +146,11 @@ namespace GabeRyan_Conditionals
             ClearLine();
             ShowHud();
             ClearLine();
-            Console.WriteLine("A loose acorn fell and hit you! 1 damage.");
+            Console.WriteLine("Luckily a delicious apple landed right infront of you, so you take a bite and... Full Restore!");
+            Heal(99);
             ClearLine();
-            Console.WriteLine("Game Over!");
-            ClearLine();
+            ShowHud();
+            
 
             
 
